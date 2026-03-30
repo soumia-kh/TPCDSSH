@@ -45,7 +45,7 @@ jobs:
           echo "${{ secrets.SSH_KEY }}" > key.pem
           chmod 600 key.pem
 
-      - name: Deploy Docker container
+            - name: Deploy Docker container
         run: |
           ssh -i key.pem -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
           "powershell -ExecutionPolicy Bypass -File 'D:\\TPCDSSH\\deploy.ps1' \
